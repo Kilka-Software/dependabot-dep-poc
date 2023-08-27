@@ -1,0 +1,30 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "a4d8c866a784084b5f5c4a4a125a185d5cb3671f23a98dd14dde80bc602224da"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.11"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "dependabot-dep-poc": {
+            "editable": true,
+            "path": "."
+        }
+    },
+    "develop": {
+        "dependabot-dep-poc": {
+            "editable": true,
+            "path": "."
+        }
+    }
+}

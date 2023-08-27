@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dependabot-dep-poc"
+authors = [
+    {name = "Mantse Tshikhovhokhovho", email = "mantse@santamswitch.co.za"},
+]
+description = "Core JaSure PostgreSQL Database"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+classifiers = [
+    "Private :: Do Not Upload",
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python",
+]
+dynamic = ["version", "readme"]
+dependencies = [
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+docs = ["sphinx", "towncrier", "sphinx-autobuild"]
+tests = [
+        "PyYAML",
+        "ipython",
+        "black",
+        "ruff",
+        "isort",
+        "rope",
+        "ipdb",
+        "pylint",
+        "pre-commit",
+        "tox",
+        "check-manifest",
+        "mypy",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "dependabot-dep-poc.__version__"}
+readme = {file = ["README.rst"]}
+
+[project.urls]
+Homepage = "https://github.com/JaSureInc"
+Issues = "https://github.com/JaSureInc/jsr-core/issues"

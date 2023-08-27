@@ -1,0 +1,13 @@
+include LICENSE *.rst *.toml *.yml *.yaml *.ini Pipfile*
+include *.sh
+
+graft src
+
+global-exclude __pycache__
+global-exclude *.py[co]
+global-exclude .DS_Store
+
+# Just to keep check-manifest happy; on releases those files are gone.
+# Last rule wins!
+exclude changelog.d/*.rst
+include Makefile

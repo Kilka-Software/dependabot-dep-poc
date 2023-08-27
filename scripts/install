@@ -1,0 +1,10 @@
+#!/bin/bash
+
+SOURCE_DIR="$(dirname $0)"
+PROJECT_DIR="$(dirname $SOURCE_DIR)"
+
+cp -n "${PROJECT_DIR}/.env.template" "${PROJECT_DIR}/.env"
+
+asdf exec pip install -U pip pipenv
+asdf exec pipenv install --dev
+asdf exec pipenv run pre-commit install
