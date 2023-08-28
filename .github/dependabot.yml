@@ -2,7 +2,7 @@ version: 2
 registries:
   github:
     type: git
-    url: https://github.com/Kilka-Software/
+    url: https://github.com
     username: x-access-token
     password: ${{ secrets.DEPENDABOT_TOKEN }}
 
