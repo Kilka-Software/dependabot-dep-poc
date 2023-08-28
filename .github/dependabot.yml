@@ -1,9 +1,17 @@
 version: 2
+registries:
+  github:
+    type: git
+    url: https://github.com/Kilka-Software/
+    username: x-access-token
+    password: ${{ secrets.DEPENDABOT_TOKEN }}
+
 updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
+    version: "auto"
     target-branch: "develop"
     labels:
       - "dependencies"
@@ -12,6 +20,9 @@ updates:
     reviewers:
       - "amazing-Mantse"
     require-up-to-date: false
-    credentials:
-      - type: "git_source"
-        token: "${{ secrets.DEPENDABOT_TOKEN }}"
+    update-patterns:
+      - dependency-name: "dependabot-dep-poc"
+        schedule:
+          interval: "daily"
+
+
