@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "develop"
+    labels:
+      - "dependencies"
+    assignees:
+      - "amazing-Mantse"
+    reviewers:
+      - "amazing-Mantse"
+    require-up-to-date: false
+    credentials:
+      - type: "git_source"
+        token: "${{ secrets.DEPENDABOT_TOKEN }}"
