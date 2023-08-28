@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a4d8c866a784084b5f5c4a4a125a185d5cb3671f23a98dd14dde80bc602224da"
+            "sha256": "e62f85edb36954d59a8efde5075a74d87d010f89b539e4dd505e178a4f09ffad"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,13 +16,13 @@
         ]
     },
     "default": {
-        "dependabot-dep-poc": {
+        "dependabot-impl-poc": {
             "editable": true,
             "path": "."
         }
     },
     "develop": {
-        "dependabot-dep-poc": {
+        "dependabot-impl-poc": {
             "editable": true,
             "path": "."
         }

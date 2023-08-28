@@ -3,7 +3,7 @@ requires = ["setuptools", "setuptools-scm", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dependabot-dep-poc"
+name = "dependabot-impl-poc"
 authors = [
     {name = "Mantse Tshikhovhokhovho", email = "mantse@santamswitch.co.za"},
 ]
@@ -16,31 +16,16 @@ classifiers = [
     "Programming Language :: Python",
 ]
 dynamic = ["version", "readme"]
-dependencies = [
-]
+dependencies = []
+
+[packages]
+    dependabot-impl-poc = {ref = "2023.8.2", git = "ssh://git@github.com:Kilka-Software/dependabot-impl-poc.git"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[project.optional-dependencies]
-docs = ["sphinx", "towncrier", "sphinx-autobuild"]
-tests = [
-        "PyYAML",
-        "ipython",
-        "black",
-        "ruff",
-        "isort",
-        "rope",
-        "ipdb",
-        "pylint",
-        "pre-commit",
-        "tox",
-        "check-manifest",
-        "mypy",
-]
-
 [tool.setuptools.dynamic]
-version = {attr = "dependabot-dep-poc.__version__"}
+version = {attr = "dependabot-impl-poc.__version__"}
 readme = {file = ["README.rst"]}
 
 [project.urls]

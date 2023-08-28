@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dependabot-dep-poc = { path = "." }
+dependabot-impl-poc = { path = "." }
 
 [dev-packages]
-dependabot-dep-poc = { editable = true, path = "."}
+dependabot-impl-poc = { editable = true, path = "."}
 
 [requires]
 python_version = "3.11"
