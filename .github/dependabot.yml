@@ -11,17 +11,15 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    version: "auto"
     target-branch: "develop"
     commit-message:
-      - prefix: "update dependabot-dep-poc : "
+      prefix: "update dependabot-dep-poc : "
     labels:
       - "jrs-core"
     assignees:
       - "amazing-Mantse"
     reviewers:
       - "amazing-Mantse"
-    require-up-to-date: false
     allow:
       - dependency-name: "dependabot-dep-poc"
 
