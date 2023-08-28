@@ -16,7 +16,7 @@ def get_bool_from_envvar(envvar: str) -> bool:
         return False
 
 
-__version__ = "2023.8.1"
+__version__ = "2023.8.3"
 
 VERSION = __version__
 ROOT_DIR = pathlib.Path(__file__).absolute().parent
