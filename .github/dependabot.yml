@@ -9,6 +9,8 @@ registries:
 updates:
   - package-ecosystem: "pip"
     directory: "/"
+    registries:
+      - github
     schedule:
       interval: "daily"
     target-branch: "develop"
