@@ -4,10 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dependabot-impl-poc = { path = "." }
+dependabot-dep-poc = {ref = "2023.8.2", git = "ssh://git@github.com/Kilka-Software/dependabot-dep-poc.git"}
 
 [dev-packages]
-dependabot-impl-poc = { editable = true, path = "."}
 
 [requires]
 python_version = "3.11"

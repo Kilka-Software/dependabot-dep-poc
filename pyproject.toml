@@ -7,7 +7,7 @@ name = "dependabot-impl-poc"
 authors = [
     {name = "Mantse Tshikhovhokhovho", email = "mantse@santamswitch.co.za"},
 ]
-description = "Core JaSure PostgreSQL Database"
+description = ""
 requires-python = ">=3.11"
 license = {file = "LICENSE"}
 classifiers = [
@@ -19,15 +19,17 @@ dynamic = ["version", "readme"]
 dependencies = []
 
 [packages]
-    dependabot-impl-poc = {ref = "2023.8.2", git = "ssh://git@github.com:Kilka-Software/dependabot-impl-poc.git"}
+dependabot-dep-poc = {ref = "2023.8.2", git = "ssh://git@github.com:Kilka-Software/dependabot-dep-poc.git"}
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = "src"
 
-[tool.setuptools.dynamic]
+[tool.setuptools_scm]
 version = {attr = "dependabot-impl-poc.__version__"}
-readme = {file = ["README.rst"]}
+
+[tool.setuptools_scm.files]
+readme = "README.rst"
 
 [project.urls]
-Homepage = "https://github.com/JaSureInc"
-Issues = "https://github.com/JaSureInc/jsr-core/issues"
+Homepage = "https://github.com/Kilka-Software/"
+Issues = "https://github.com/Kilka-Software/dependabot-dep-poc/issues"

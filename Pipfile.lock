@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e62f85edb36954d59a8efde5075a74d87d010f89b539e4dd505e178a4f09ffad"
+            "sha256": "b02405ad67bf9fe60f83da3d8a223f4ea288313ed9b8b7f5fecdf30d265f291e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,15 +16,10 @@
         ]
     },
     "default": {
-        "dependabot-impl-poc": {
-            "editable": true,
-            "path": "."
+        "dependabot-dep-poc": {
+            "git": "ssh://git@github.com/Kilka-Software/dependabot-dep-poc.git",
+            "ref": "80532b246e8bdf97c61816b75cb5efc0a7014278"
         }
     },
-    "develop": {
-        "dependabot-impl-poc": {
-            "editable": true,
-            "path": "."
-        }
-    }
+    "develop": {}
 }
