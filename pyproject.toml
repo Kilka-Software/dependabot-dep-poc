@@ -33,3 +33,5 @@ readme = "README.rst"
 [project.urls]
 Homepage = "https://github.com/Kilka-Software/"
 Issues = "https://github.com/Kilka-Software/dependabot-dep-poc/issues"
+
+[project.optional-dependencies]
