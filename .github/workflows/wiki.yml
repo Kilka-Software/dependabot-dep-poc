@@ -1,0 +1,36 @@
+name: Publish Docs to Wiki
+
+on:
+  push:
+    paths:
+      - docs/_build/rst/** # Trigger on changes in the rst directory
+
+jobs:
+  publish_to_wiki:
+    name: Publish to Wiki
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git fetch --depth=1 origin refs/heads/wiki:refs/remotes/origin/wiki
+
+      - name: Copy Markdown files to wiki
+        run: |
+          mkdir tmp_wiki
+          cp -r docs/_build/rst/* tmp_wiki/
+
+      - name: Commit and push to wiki
+        run: |
+          cd tmp_wiki
+          git init
+          git add .
+          git commit -m "Update Wiki content"
+          git remote add wiki https://github.com/$GITHUB_REPOSITORY.wiki.git
+          git pull --rebase=merges wiki main
+          git push -f wiki HEAD:main
