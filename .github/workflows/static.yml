@@ -6,6 +6,7 @@ on:
   push:
     branches: ["main"]
 
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -21,12 +22,22 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+
+env:
+  USER_TOKEN: ${{ secrets.WIKI_ACTION_TOKEN }} # This is the repository secret
+  USER_NAME: "wiki bot" # Enter the username of your (bot) account
+  USER_EMAIL: "wikibot@santamswich.co.za" # Enter the e-mail of your (bot) account
+  OWNER: ${{ github.event.repository.owner.name }} # This is the repository owner
+  REPOSITORY_NAME: ${{ github.event.repository.name }} # This is the repository name
+
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,11 +46,30 @@ jobs:
         run: |
           pip install sphinx
           pip install sphinx-autobuild
+          pip install sphinx-markdown-builder
       - name: Build the Docs
         run: |
           sphinx-build -b html -d docs/_build/doctrees docs docs/_build/html
           sphinx-build -b doctest -d docs/_build/doctrees docs docs/_build/html
           python -m doctest README.rst
+          sphinx-build -M markdown ./docs docs/_build/rst
+
+      - name: Set up Git
+        run: |
+          mkdir tmp_wiki
+          cd tmp_wiki
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git pull https://github.com/Kilka-Software/dependabot-dep-poc.wiki.git
+
+      - name: Synchronize and push content to wiki
+        run: |
+          rsync -av --delete docs/_build/rst/ tmp_wiki/
+          cd tmp_wiki
+          git add .
+          git commit -m "Update Wiki content" 
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
